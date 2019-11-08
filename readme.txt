@@ -1,0 +1,1 @@
+The file options.html contains the relevant information for this tool, please read it.

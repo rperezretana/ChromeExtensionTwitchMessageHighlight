@@ -1,5 +1,6 @@
 var appeareanceAlert = 'background-color: lightskyblue;color: black;font-weight: bolder;';
 var checkBoxForChat = '<div><input type="checkbox" id="HighlightNewChatters" value="check"> Highlight new twitch messages</div>';
+var chatBoxSelector ="[data-a-target='chat-input']";
 var chattersRecord = {};
 var Init = function()
 {
@@ -7,8 +8,12 @@ var Init = function()
 	{
 		console.log("setting up event");
 		  setTimeout(function(){
-			$(checkBoxForChat).insertBefore(".chat-input__textarea");
-		  },10000);
+			  if($(chatBoxSelector).length >0)
+			  {
+				$(checkBoxForChat).insertBefore(chatBoxSelector);
+				$("#HighlightNewChatters").prop( "checked", true );
+			  }
+			
 			$(document).on('DOMNodeInserted',function(el){
 				let target = $(el.target);
 				if( target.hasClass("chat-line__message"))
@@ -25,6 +30,8 @@ var Init = function()
 					chattersRecord[userName] = true;
 				}
 			}); 
+
+		  },10000);
 	});
 	$(window).on('hashchange', function(e)
 	{

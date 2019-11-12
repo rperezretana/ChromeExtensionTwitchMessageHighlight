@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Riot_Grrrl - Twitch Chat Tools",
-  "version": "1.1",
+  "version": "1.5",
   "description": "This extension is directed for medium/small streamers",
   "icons": {
 	  "1":   "iconbig.png",           
@@ -17,14 +17,14 @@
 	"default_icon":"icon1.png"
   },
   "author": "Rolando Retana",
-  "permissions": ["https://www.twitch.tv/*"],
+  "permissions": ["https://www.twitch.tv/*", "https://dashboard.twitch.tv/*" ],
   "options_page": "options.html",
   "short_name": "Rolando",
   "content_scripts": [
     {
       "run_at": "document_end",
       "matches": [
-        "https://www.twitch.tv/*"
+        "https://www.twitch.tv/*", "https://dashboard.twitch.tv/*"
       ],
       "js": [
 		    "jquery3.1.0.jquery.min.js",
